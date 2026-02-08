@@ -128,6 +128,9 @@ Resources:
       Name: MyWebServers
       Port: 80
       Protocol: HTTP
+      Port: 22
+      Protocol: TCP
+      
       Targets:
         - Id: !Ref EC2Instance1
           Port: 80
@@ -210,7 +213,7 @@ Outputs:
     Description: Application Load Balancer Canonical Hosted Zone ID
     Export:
       Name: !Sub ${AWS::StackName}-ApplicationLoadBalancerZoneID
-
     Value: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+
 
 
