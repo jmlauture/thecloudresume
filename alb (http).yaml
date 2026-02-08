@@ -85,7 +85,7 @@ Resources:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
     Properties:
       DefaultActions:
-      - Type: fixed-response
+      - Type: forward
         FixedResponseConfig:
           ContentType: text/plain
           MessageBody: "Hello world"
@@ -214,4 +214,5 @@ Outputs:
     Description: Application Load Balancer Canonical Hosted Zone ID
     Export:
       Name: !Sub ${AWS::StackName}-ApplicationLoadBalancerZoneID
+
     Value: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
