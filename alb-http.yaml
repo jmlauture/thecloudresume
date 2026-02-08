@@ -86,11 +86,7 @@ Resources:
     Properties:
       DefaultActions:
       - Type: forward
-        FixedResponseConfig:
-          ContentType: text/plain
-          MessageBody: "Hello world"
-          StatusCode: 200
-          TargetGroupArn: !Ref ALBTargetGroup
+        TargetGroupArn: !Ref ALBTargetGroup
       LoadBalancerArn: !Ref ApplicationLoadBalancer
       Port: 80
       Protocol: HTTP
@@ -216,3 +212,4 @@ Outputs:
       Name: !Sub ${AWS::StackName}-ApplicationLoadBalancerZoneID
 
     Value: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+
