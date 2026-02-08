@@ -105,15 +105,15 @@ Resources:
 #      Protocol: HTTPS
 
 #Create a SSH Listener on Port 22 
-#  ALBListenerSSH:
-#    Type: 'AWS::ElasticLoadBalancingV2::Listener'
-#    Properties:
-#      DefaultActions:
-#      - Type: forward
-#        TargetGroupArn: !Ref ALBTargetGroup
-#      LoadBalancerArn: !Ref ApplicationLoadBalancer
-#      Port: 22
-#      Protocol: TCP
+  ALBListenerSSHCertificate:
+    Type: 'AWS::ElasticLoadBalancingV2::Listener'
+    Properties:
+      DefaultActions:
+      - Type: forward
+        TargetGroupArn: !Ref ALBTargetGroup
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 22
+      Protocol: TCP
 
 # Create a Target Group  - Add HTTP, HTTP and SSH PORT for LAB SandBox
   ALBTargetGroup:
@@ -133,10 +133,10 @@ Resources:
           Port: 80
         - Id: !Ref EC2Instance2
           Port: 80
- #       - Id: !Ref EC2Instance1
- #         Port: 22
- #       - Id: !Ref EC2Instance2
- #         Port: 22
+        - Id: !Ref EC2Instance1
+          Port: 22
+        - Id: !Ref EC2Instance2
+          Port: 22
       TargetType: instance
       UnhealthyThresholdCount: 5
       VpcId:
@@ -212,4 +212,5 @@ Outputs:
       Name: !Sub ${AWS::StackName}-ApplicationLoadBalancerZoneID
 
     Value: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+
 
