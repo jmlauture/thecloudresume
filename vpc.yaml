@@ -16,7 +16,7 @@ Metadata:
           default: "Subnet CIDR"
         Parameters:
           - PublicSubnet1CIDR
-          - PublicSubnet2CIDR
+          - PublicSubnet2CIDR  # Assumes a second public subnet named 'PublicSubnet2'
           - PrivateSubnet1CIDR
           - PrivateSubnet2CIDR
           - PrivateSubnet3CIDR
@@ -257,7 +257,6 @@ Resources:
         - Key: Name
           Value: DataBase Security Group
       VpcId: !Ref VPC
-
 
 Outputs:
   VPC:
