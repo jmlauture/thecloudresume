@@ -1,0 +1,145 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: 'Setup for a Private EC2 Instance with SSM Session Manager access'
+ 
+Metadata:
+  AWS::CloudFormation::Interface: 
+    ParameterGroups:
+      - 
+        Label: 
+          default: "Export VPC Stack Name"
+        Parameters:
+          - ExportVpcStackName      
+      - 
+        Label: 
+          default: "Export EC2 Stack Name"
+        Parameters:
+          - ExportEC2StackName
+
+Parameters:
+  ExportVpcStackName:
+    Description: The name of the vpc stack that exports values
+    Type: String
+
+  ExportEC2StackName:
+    Description: The name of the EC2 stack that exports values
+    Type: String
+
+Resources:
+  # 1. IAM Role for the Instance
+  SSMInstanceRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      #ManagedPolicyArns:
+      #  - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      #Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::923984121646:instance-profile/LabInstanceProfile
+      Path: /
+
+  # 2. Instance Profile (This connects the role to the EC2)
+  #SSMInstanceProfile:
+  #  Type: 'AWS::IAM::InstanceProfile'
+  #  Properties:
+  #    Path: /
+  #    Roles:
+  #      - !Ref SSMInstanceRole
+
+  # 3. Security Group (Outbound 443 only)
+  SSMSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable HTTPS outbound for SSM
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC  
+
+  # 4. The Private EC2 Instance
+  PrivateInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 
+        Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2InstanceType
+      ImageId:  # "ami-xxxxxxxx" - Replace with a valid Amazon Linux 2023 AMI for your region
+        Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2InstanceType
+      #IamInstanceProfile: !Ref SSMInstanceProfile
+      IamInstanceProfile: 
+      SubnetId:   # "subnet-xxxxxxxx" - Replace with your Private Subnet ID
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
+      SecurityGroupIds:
+        - !Ref SSMSecurityGroup
+      Tags:
+        - Key: Name
+          Value: Private-SSM-Instance
+
+  # 5. Security Group for the Endpoints. This allows the EC2 instances to send HTTPS traffic to the Endpoints
+  VPCEndpointSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: "Allow EC2 instances to reach SSM Endpoints"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          # Allow traffic from the Security Group of your EC2 instances
+          SourceSecurityGroupId: !Ref SSMSecurityGroup 
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC     
+      
+  # 6. SSM Endpoint
+  SSMEndpoint:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssm"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds: 
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1 # Private Subnet 1
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+  # 7. EC2 Messages Endpoint (Required for some SSM features)
+  EC2MessagesEndpoint:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ec2messages"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1 # Private Subnet 1
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+  # 8. SSM Messages Endpoint (Required for Session Manager specifically)
+  SSMMessagesEndpoint:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssmmessages"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1 # Private Subnet 1
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+# Outputs:
+  # set of outputs
