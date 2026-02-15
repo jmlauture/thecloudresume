@@ -54,7 +54,7 @@ Resources:
         Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2InstanceType
       ImageId:  # - Replace with a valid Amazon Linux 2023 AMI for your region
         Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2AmazonImageID
-      IamInstanceProfile: "LabInstanceProfile"
+      IamInstanceProfile: !Ref EC2InstanceProfile
       SubnetId:   # - Replace with your Private Subnet ID
         Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
       SecurityGroupIds:
@@ -122,3 +122,4 @@ Resources:
 # Outputs:
 
   # set of outputs
+
