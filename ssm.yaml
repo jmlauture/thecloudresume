@@ -27,6 +27,7 @@ Parameters:
     Type: String
 
   EC2InstanceProfile:
+    Default: LabInstanceProfile
     Description: Enter the name of the existing Profile being used - "LabInstanceProfile"
     Type: String 
 
@@ -181,6 +182,7 @@ Resources:
 # Outputs:
 
   # set of outputs
+
 
 
 
