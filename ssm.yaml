@@ -15,6 +15,7 @@ Metadata:
           default: "Export EC2 Stack Name"
         Parameters:
           - ExportEC2StackName
+          - InstanceProfile  # Name of the instance profile
 
 Parameters:
   ExportVpcStackName:
@@ -25,7 +26,13 @@ Parameters:
     Description: The name of the EC2 stack that exports values
     Type: String
 
+  EC2InstanceProfile:
+    Description: Enter the name of the existing Profile being used
+    Type: String 
+
 Resources:
+  # 1. IAM Role for the Instance  // LabRole already exists
+  # 2. EC2 Instance Profile (This connects the role to the EC2)
   # 3. Security Group (Outbound 443 only)
   SSMSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
@@ -45,11 +52,10 @@ Resources:
     Properties:
       InstanceType: 
         Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2InstanceType
-      ImageId:  # "ami-xxxxxxxx" - Replace with a valid Amazon Linux 2023 AMI for your region
+      ImageId:  # - Replace with a valid Amazon Linux 2023 AMI for your region
         Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2AmazonImageID
-      #IamInstanceProfile: !Ref SSMInstanceProfile
-      IamInstanceProfile: "LabInstanceProfile"     
-      SubnetId:   # "subnet-xxxxxxxx" - Replace with your Private Subnet ID
+      IamInstanceProfile: "LabInstanceProfile"
+      SubnetId:   # - Replace with your Private Subnet ID
         Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
       SecurityGroupIds:
         - !Ref SSMSecurityGroup
@@ -114,4 +120,5 @@ Resources:
         - !Ref VPCEndpointSecurityGroup
 
 # Outputs:
+
   # set of outputs
