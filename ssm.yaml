@@ -46,8 +46,8 @@ Resources:
       VpcId:
         Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC  
 
-  # 4. The Private EC2 Instance
-  PrivateInstance:
+  # 4. The 1st Private EC2 Instance
+  PrivateInstance1:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: 
@@ -56,14 +56,31 @@ Resources:
         Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2AmazonImageID
       IamInstanceProfile: !Ref EC2InstanceProfile
       SubnetId:   # - Replace with your Private Subnet ID
-        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet1  # Private Subnet 1
       SecurityGroupIds:
         - !Ref SSMSecurityGroup
       Tags:
         - Key: Name
-          Value: Private-SSM-Instance
+          Value: Private-SSM-Instance1
 
-  # 5. Security Group for the Endpoints. This allows the EC2 instances to send HTTPS traffic to the Endpoints
+  # 5. The 2nd Private EC2 Instance
+  PrivateInstance2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 
+        Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2InstanceType
+      ImageId:  # - Replace with a valid Amazon Linux 2023 AMI for your region
+        Fn::ImportValue: !Sub ${ExportEC2StackName}-EC2AmazonImageID
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      SubnetId:   # - Replace with your Private Subnet ID
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet2  # Private Subnet 2
+      SecurityGroupIds:
+        - !Ref SSMSecurityGroup
+      Tags:
+        - Key: Name
+          Value: Private-SSM-Instance2
+
+  # 6. Security Group for the Endpoints. This allows the EC2 instances to send HTTPS traffic to the Endpoints
   VPCEndpointSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -77,8 +94,8 @@ Resources:
       VpcId:
         Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC     
       
-  # 6. SSM Endpoint
-  SSMEndpoint:
+  # 7. SSM Endpoint
+  SSMEndpoint1:
     Type: 'AWS::EC2::VPCEndpoint'
     Properties:
       ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssm"
@@ -87,12 +104,26 @@ Resources:
       VpcId:
         Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
       SubnetIds: 
-        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet1  # Private Subnet 1
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
 
-  # 7. EC2 Messages Endpoint (Required for some SSM features)
-  EC2MessagesEndpoint:
+  # 8. SSM Endpoint
+  SSMEndpoint2:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssm"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds: 
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet2  # Private Subnet 2
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+  # 9. EC2 Messages Endpoint (Required for some SSM features)
+  EC2MessagesEndpoint1:
     Type: 'AWS::EC2::VPCEndpoint'
     Properties:
       ServiceName: !Sub "com.amazonaws.${AWS::Region}.ec2messages"
@@ -101,12 +132,26 @@ Resources:
       VpcId:
         Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
       SubnetIds:
-        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet1  # Private Subnet 1
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
 
-  # 8. SSM Messages Endpoint (Required for Session Manager specifically)
-  SSMMessagesEndpoint:
+  # 10. EC2 Messages Endpoint (Required for some SSM features)
+  EC2MessagesEndpoint2:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ec2messages"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds:
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet2  # Private Subnet 2
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+  # 11. SSM Messages Endpoint (Required for Session Manager specifically)
+  SSMMessagesEndpoint1:
     Type: 'AWS::EC2::VPCEndpoint'
     Properties:
       ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssmmessages"
@@ -115,12 +160,27 @@ Resources:
       VpcId:
         Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
       SubnetIds:
-        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1  # Private Subnet 1
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet1  # Private Subnet 1
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+
+  # 12. SSM Messages Endpoint (Required for Session Manager specifically)
+  SSMMessagesEndpoint2:
+    Type: 'AWS::EC2::VPCEndpoint'
+    Properties:
+      ServiceName: !Sub "com.amazonaws.${AWS::Region}.ssmmessages"
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      VpcId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-VPC
+      SubnetIds:
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-PrivateSubnet2  # Private Subnet 2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
 
 # Outputs:
 
   # set of outputs
+
 
 
