@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean M. Lauture | Database & Cloud Infrastructure Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .skill-tag { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .profile-img { 
+            filter: contrast(1.05) brightness(1.02);
+            transition: all 0.5s ease;
+        }
+        .profile-img:hover { filter: contrast(1) brightness(1); }
+        .hidden-section { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#" onclick="showSection('portfolio')" class="font-bold text-xl tracking-tight text-blue-600">JML.tech</a>
+            <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-wide items-center">
+                <a href="#home" onclick="showSection('portfolio')" class="nav-link hover:text-blue-600 transition">Home</a>
+                <a href="#about" onclick="showSection('portfolio')" class="nav-link hover:text-blue-600 transition">About</a>
+                <a href="#skills" onclick="showSection('portfolio')" class="nav-link hover:text-blue-600 transition">Skills</a>
+                <a href="#experience" onclick="showSection('portfolio')" class="nav-link hover:text-blue-600 transition">Experience</a>
+                <a href="#" onclick="showSection('blog')" class="nav-link px-4 py-2 bg-slate-100 rounded-lg hover:bg-blue-600 hover:text-white transition">Blog</a>
+                <a href="#contact" onclick="showSection('portfolio')" class="nav-link hover:text-blue-600 transition">Contact</a>
+            </div>
+            <button class="md:hidden p-2" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN PORTFOLIO CONTENT -->
+    <div id="portfolio-section">
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 hero-gradient text-white">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-blue-400 font-semibold mb-2 uppercase tracking-widest">Database & Cloud Infrastructure</h2>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">Jean M. Lauture</h1>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                        10+ years experience building and tuning high-availability enterprise databases. 
+                        Currently expanding into AWS Cloud Architecture and AI Engineering.
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition flex items-center gap-2">
+                            Get In Touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jeanmlauture" target="_blank" class="border border-slate-500 hover:bg-white/10 px-8 py-3 rounded-full font-semibold transition flex items-center gap-2">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i> View LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-blue-500/30 shadow-2xl bg-slate-800">
+                        <img src="https://lh3.googleusercontent.com/d/1naBzT4QPJbtSfEuBa93o9AXoh7MvNqBG" 
+                             alt="Jean M. Lauture" 
+                             onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'"
+                             class="profile-img w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-blue-600 p-4 rounded-xl shadow-lg hidden md:block">
+                        <p class="text-xs font-bold uppercase text-blue-100">Location</p>
+                        <p class="text-sm font-semibold">Atlanta, GA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Summary -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-1 w-12 bg-blue-600"></div>
+                    <h3 class="text-2xl font-bold">Professional Summary</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                    Database systems professional specializing in high-availability enterprise environments. Modernizing deep on-prem RDBMS expertise with Cloud-native architectures through the **Per Scholas AWS re/Start** program.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-12">
+                    <div class="flex gap-4">
+                        <div class="bg-blue-50 p-3 rounded-lg h-fit text-blue-600">
+                            <i data-lucide="database" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">DB Mastery</h4>
+                            <p class="text-sm text-slate-500">Expertise in Oracle RAC (9i-19c), SQL Server, and Exadata performance tuning.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="bg-blue-50 p-3 rounded-lg h-fit text-blue-600">
+                            <i data-lucide="cloud" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Cloud Transition</h4>
+                            <p class="text-sm text-slate-500">AWS Certified Practitioner focus, RDS, DynamoDB, and VPC Infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Experience remain the same, kept for continuity -->
+        <!-- [Skills and Experience Sections omitted here for brevity but preserved in full logic] -->
+        <section id="skills" class="py-20 bg-slate-50">
+            <!-- Content same as previous version -->
+            <div class="max-w-6xl mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center mb-16">Technical Arsenal</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <h4 class="font-bold text-lg mb-6 flex items-center gap-2">
+                            <i data-lucide="layers" class="text-blue-600"></i> Databases
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">Oracle RAC</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">Amazon RDS</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">SQL Server</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <h4 class="font-bold text-lg mb-6 flex items-center gap-2">
+                            <i data-lucide="terminal" class="text-blue-600"></i> Cloud & DevOps
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">AWS (EC2, S3, VPC)</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">Linux (RHEL)</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">Python</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                        <h4 class="font-bold text-lg mb-6 flex items-center gap-2">
+                            <i data-lucide="zap" class="text-blue-600"></i> Tooling
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">GoldenGate</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">Exadata</span>
+                            <span class="skill-tag px-3 py-1 rounded-md text-sm font-medium text-blue-700">RMAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-12">Experience</h3>
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l-2 border-slate-200">
+                        <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1"></div>
+                        <h4 class="font-bold text-xl text-slate-900">Amazon | FC Associate</h4>
+                        <p class="text-blue-600 font-medium">Nov 2023 - Present</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-slate-200">
+                        <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
+                        <h4 class="font-bold text-xl text-slate-900">Ericsson / Sprint | Senior DB Engineer</h4>
+                        <p class="text-blue-600 font-medium">2010 - 2017</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h3 class="text-3xl font-bold mb-4">Let's Build Reliable Systems</h3>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl border border-slate-100 shadow-sm mt-12">
+                    <h4 class="font-bold mb-6">Send a Message</h4>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Name" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <textarea placeholder="How can I help you?" rows="4" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <button id="send-btn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Send Inquiry</button>
+                        <p id="msg-feedback" class="hidden text-green-600 text-sm mt-2 font-medium">Thanks! I'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BLOG SECTION -->
+    <div id="blog-section" class="hidden-section pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="mb-12">
+                <h1 class="text-4xl font-bold mb-4">Tech Insights & Cloud Journey</h1>
+                <p class="text-slate-500">Sharing my perspective on Database migrations, AWS architectures, and the evolution of tech.</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Blog Post 1 -->
+                <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">AWS</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded">DATABASE</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 hover:text-blue-600 transition cursor-pointer">The Shift: From Oracle RAC to Amazon Aurora</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Moving massive mission-critical workloads from traditional on-prem RAC environments to the cloud isn't just about changing the host. It's about rethinking scalability and high-availability...
+                    </p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Oct 12, 2024
+                        </div>
+                        <button class="text-blue-600 font-bold flex items-center gap-1">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">AWS re/Start</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded">CAREER</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 hover:text-blue-600 transition cursor-pointer">Modernizing a 20-Year Tech Career</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Tech never stands still. My journey through the AWS re/Start program at Per Scholas has been eye-opening. Here is why I believe every DB Engineer should embrace serverless computing...
+                    </p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Sep 28, 2024
+                        </div>
+                        <button class="text-blue-600 font-bold flex items-center gap-1">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover">
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">INFRASTRUCTURE</span>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 hover:text-blue-600 transition cursor-pointer">Automation: The DBA's Secret Weapon</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Using Python and Shell scripting to manage thousands of database instances. Reflecting on lessons learned from my time at Ericsson supporting Sprint's core infrastructure...
+                    </p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Sep 15, 2024
+                        </div>
+                        <button class="text-blue-600 font-bold flex items-center gap-1">Read More <i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-900 text-slate-400 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+            <p>&copy; 2024 Jean M. Lauture. Built with AWS & Cloud Principles in mind.</p>
+            <div class="flex space-x-6">
+                <a href="#home" onclick="showSection('portfolio')" class="hover:text-white transition">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Logic
+        function showSection(sectionId) {
+            const portfolio = document.getElementById('portfolio-section');
+            const blog = document.getElementById('blog-section');
+            
+            if (sectionId === 'blog') {
+                portfolio.classList.add('hidden-section');
+                blog.classList.remove('hidden-section');
+                window.scrollTo(0, 0);
+            } else {
+                portfolio.classList.remove('hidden-section');
+                blog.classList.add('hidden-section');
+            }
+        }
+
+        // Ensure Lucide is loaded before initializing
+        window.onload = function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Simple form feedback
+            const sendBtn = document.getElementById('send-btn');
+            if (sendBtn) {
+                sendBtn.addEventListener('click', () => {
+                    const feedback = document.getElementById('msg-feedback');
+                    feedback.classList.remove('hidden');
+                    setTimeout(() => {
+                        feedback.classList.add('hidden');
+                    }, 4000);
+                });
+            }
+
+            // Sticky Nav shadow on scroll
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (nav && !document.getElementById('blog-section').classList.contains('hidden-section')) {
+                     nav.classList.add('shadow-md');
+                } else if (nav) {
+                    if (window.scrollY > 50) {
+                        nav.classList.add('shadow-md');
+                    } else {
+                        nav.classList.remove('shadow-md');
+                    }
+                }
+            });
+        };
+    </script>
+</body>
+</html>
