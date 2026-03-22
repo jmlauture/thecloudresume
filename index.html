@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean M Lauture | Cloud Infrastructure & Database Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: #2563eb;
+            display: inline-block;
+            margin: 4px;
+        }
+
+        .experience-card {
+            border-left: 2px solid #e5e7eb;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 4px solid white;
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        /* Form styling */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#" onclick="showSection('home')" class="text-xl font-bold tracking-tight">JEAN <span class="text-blue-600">LAUTURE</span></a>
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#" onclick="showSection('home')" class="nav-link">Home</a>
+                <a href="#" onclick="showSection('about')" class="nav-link">About</a>
+                <a href="#" onclick="showSection('experience')" class="nav-link">Experience</a>
+                <a href="#" onclick="showSection('blog')" class="nav-link">Roll Blog</a>
+            </div>
+            <a href="#" onclick="showSection('contact')" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Contact Me</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="page-section active-section min-h-screen flex items-center">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4">Database Engineer & Cloud Architect</h2>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                        Pivoting to <span class="gradient-text">Cloud & AI</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        10+ years of experience building business-critical enterprise databases. Now modernizing infrastructure through AWS and Generative AI.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button onclick="showSection('experience')" class="bg-slate-900 text-white px-8 py-3 rounded-xl hover:bg-slate-800 transition shadow-lg">View My Work</button>
+                        <a href="https://www.linkedin.com/in/jeanmlauture" target="_blank" class="flex items-center space-x-2 px-6 py-3 border border-slate-200 rounded-xl hover:bg-white transition">
+                            <i class="fab fa-linkedin text-blue-600"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
+                        <!-- User's Picture -->
+                        <img src="https://drive.google.com/uc?export=view&id=1naBzT4QPJbtSfEuBa93o9AXoh7MvNqBG" 
+                             alt="Jean M Lauture" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Jean+Lauture&background=0D8ABC&color=fff&size=512'">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                        <p class="text-sm font-bold text-slate-400 mb-1">AWS re/Start Graduate</p>
+                        <p class="text-xl font-bold">Cloud Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="page-section py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">Professional Summary</h2>
+                <div class="prose prose-lg text-slate-600 max-w-none">
+                    <p>
+                        Experienced database engineer (Oracle, SQL Server, MySQL) pivoting into cloud infrastructure and AI. 
+                        Upskilling professional with 10+ years of experience building and tuning large-scale business-critical 
+                        enterprise databases. Strong background in relational databases, system reliability with hands-on 
+                        experience in Linux, Unix, Windows scripting and SQL to automate operations and optimize performance.
+                    </p>
+                    <p class="mt-4">
+                        Expanding cloud skills through the Per Scholas AWS re/Start program combining proven on-prem 
+                        database-systems best practices and modern cloud services-architectures.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">Databases & Cloud</h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Oracle / RAC</span>
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Amazon RDS</span>
+                            <span class="skill-tag">Aurora</span>
+                            <span class="skill-tag">DynamoDB</span>
+                            <span class="skill-tag">VPC & EC2</span>
+                            <span class="skill-tag">Lambda</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-4">Automation & AI</h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Generative AI</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Agentic AI</span>
+                            <span class="skill-tag">Shell Scripting</span>
+                            <span class="skill-tag">CloudFormation</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="page-section py-20">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-16 text-center">Career Path</h2>
+                
+                <div class="space-y-12">
+                    <!-- Amazon -->
+                    <div class="experience-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">FC Associate (Cloud Systems Exposure)</h3>
+                            <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded">2023 - Present</span>
+                        </div>
+                        <p class="text-lg font-semibold text-slate-700 mb-4">Amazon | Atlanta, GA</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2">
+                            <li>Optimize high-volume automated workflows within AWS-powered fulfillment environments.</li>
+                            <li>Resolve complex system defects to maintain peak sortation throughput.</li>
+                            <li>Bridge the gap between physical logistics and AWS infrastructure management.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Per Scholas -->
+                    <div class="experience-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">AWS re/Start Graduate</h3>
+                            <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded">2025 - 2026</span>
+                        </div>
+                        <p class="text-lg font-semibold text-slate-700 mb-4">Per Scholas | Atlanta, GA</p>
+                        <p class="text-slate-600 italic">Focused on cloud computing, infrastructure automation, and security. Successfully bridged 10+ years of DBA expertise with modern AWS cloud-native services.</p>
+                    </div>
+
+                    <!-- Ericsson -->
+                    <div class="experience-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Senior Database Engineer</h3>
+                            <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded">2010 - 2017</span>
+                        </div>
+                        <p class="text-lg font-semibold text-slate-700 mb-4">Ericsson / Sprint | Atlanta, GA</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2">
+                            <li>Engineered and supported 1000's of enterprise Oracle database platforms.</li>
+                            <li>Implemented high-availability architectures using Oracle RAC and Data Guard.</li>
+                            <li>Led complex database migrations and data center relocations with zero downtime.</li>
+                        </ul>
+                    </div>
+
+                    <!-- HP -->
+                    <div class="experience-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Senior Infrastructure Specialist</h3>
+                            <span class="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded">2002 - 2010</span>
+                        </div>
+                        <p class="text-lg font-semibold text-slate-700 mb-4">HP / EDS | Atlanta, GA</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2">
+                            <li>Designed and supported large-scale Oracle and SQL Server on UNIX/Linux/Windows.</li>
+                            <li>Delivered database engineering for mission-critical, 24x7 enterprise systems.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROLL BLOG SECTION -->
+        <section id="blog" class="page-section py-20 bg-slate-900 text-white min-h-screen">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Roll Blog</h2>
+                    <p class="text-slate-400">Thoughts on Cloud Migration, AI Integration, and the future of Database Engineering.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 transition group cursor-pointer">
+                        <div class="h-48 bg-blue-900/50 flex items-center justify-center">
+                            <i class="fas fa-cloud text-5xl text-blue-400 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-blue-400 text-xs font-bold uppercase mb-3">
+                                <span>Cloud Strategy</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Transitioning from On-Prem to AWS RDS</h3>
+                            <p class="text-slate-400 text-sm mb-4">Lessons learned from a decade of Oracle DBA work while moving to cloud-native managed services.</p>
+                            <span class="text-blue-400 font-semibold group-hover:underline">Read Article →</span>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 transition group cursor-pointer">
+                        <div class="h-48 bg-purple-900/50 flex items-center justify-center">
+                            <i class="fas fa-robot text-5xl text-purple-400 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-purple-400 text-xs font-bold uppercase mb-3">
+                                <span>Generative AI</span>
+                                <span>•</span>
+                                <span>8 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">The DBA's Role in the Era of Agentic AI</h3>
+                            <p class="text-slate-400 text-sm mb-4">How Large Language Models and RAG architectures are redefining data management workflows.</p>
+                            <span class="text-purple-400 font-semibold group-hover:underline">Read Article →</span>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 transition group cursor-pointer">
+                        <div class="h-48 bg-emerald-900/50 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-5xl text-emerald-400 group-hover:scale-110 transition duration-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 text-emerald-400 text-xs font-bold uppercase mb-3">
+                                <span>Automation</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Automating High Availability with Python</h3>
+                            <p class="text-slate-400 text-sm mb-4">Scripting failover protocols and monitoring in hybrid cloud environments.</p>
+                            <span class="text-emerald-400 font-semibold group-hover:underline">Read Article →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="page-section py-20 bg-white min-h-screen">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+                    <p class="text-slate-600">Have a project or opportunity in mind? I'd love to hear from you.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                                    <i class="fas fa-envelope fa-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">Email</p>
+                                    <a href="mailto:jnmalau@gmail.com" class="text-slate-600 hover:text-blue-600 transition">jnmalau@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                                    <i class="fas fa-phone fa-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">Phone</p>
+                                    <p class="text-slate-600">(478) 974-9876</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-blue-50 p-3 rounded-lg text-blue-600">
+                                    <i class="fas fa-map-marker-alt fa-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">Location</p>
+                                    <p class="text-slate-600">Atlanta, GA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
+                                <input type="text" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Email Address</label>
+                                <input type="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Subject</label>
+                                <input type="text" class="form-input" placeholder="Project Inquiry" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">Message</label>
+                                <textarea class="form-input min-h-[120px]" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center space-x-2">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane text-xs"></i>
+                            </button>
+                            <p id="formStatus" class="text-center text-sm font-medium hidden"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-6 md:mb-0">
+                <p class="font-bold text-lg">Jean M Lauture</p>
+                <p class="text-slate-500 text-sm">Atlanta, GA | jnmalau@gmail.com</p>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="https://www.linkedin.com/in/jeanmlauture" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="mailto:jnmalau@gmail.com" class="hover:text-blue-600 transition"><i class="fas fa-envelope fa-lg"></i></a>
+                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-slate-300 text-xs uppercase tracking-widest">
+            © 2026 All Rights Reserved
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(s => s.classList.remove('active-section'));
+            
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.classList.add('active-section');
+                window.scrollTo(0, 0);
+            }
+
+            // Update nav styles
+            const navLinks = document.querySelectorAll('.nav-link, nav a.bg-blue-600');
+            // This is a simplified selector for demonstration
+        }
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            status.textContent = "Thank you! Your message has been sent successfully.";
+            status.classList.remove('hidden', 'text-red-600');
+            status.classList.add('text-green-600');
+            this.reset();
+            
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
