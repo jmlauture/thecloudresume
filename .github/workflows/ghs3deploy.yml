@@ -1,4 +1,4 @@
-name: Deploy to AWS S3
+name: Deploy Resume Site to AWS S3
 
 on:
   push:
@@ -27,6 +27,6 @@ jobs:
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
-          --distribution-id E1EIW1WTZERUA7 \
+          --distribution-id ${{ secrets.CLOUDFRONT_ID }} \
           --paths "/*"
           
