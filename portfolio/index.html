@@ -436,6 +436,20 @@
     </footer>
 
     <script>
+        // -----------------------------------------------------------
+        // VISITOR COUNTER SCRIPT (ADDED HERE)
+        // -----------------------------------------------------------
+        fetch(https://mbvn1bvkra.execute-api.us-west-2.amazonaws.com)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById("counter").innerText = data;
+          })
+          .catch(err => {
+              // Graceful error fallback for the UI
+              document.getElementById("counter").innerText = "Offline";
+          });
+        // -----------------------------------------------------------
+
         function showSection(sectionId) {
             // Hide all sections
             const sections = document.querySelectorAll('.page-section');
