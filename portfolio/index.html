@@ -439,7 +439,7 @@
         // -----------------------------------------------------------
         // VISITOR COUNTER SCRIPT (ADDED HERE)
         // -----------------------------------------------------------
-        fetch('https://mbvn1bvkra.execute-api.us-west-2.amazonaws.com')
+        fetch("https://mbvn1bvkra.execute-api.us-west-2.amazonaws.com/")
           .then(response => response.json())
           .then(data => {
             document.getElementById("counter").innerText = data;
