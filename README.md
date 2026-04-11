@@ -6,22 +6,21 @@ From Database Administrator to Cloud Database Engineer <br/>
 I am transitioning from Database Administration into Cloud Engineering, building scalable, secure, and cost-efficient systems using AWS.
 
 🔧 Skills <br/>
-Cloud Infrastructure (VPC, EC2)
-Serverless Architecture (Lambda, DynamoDB)
-Storage & CDN (S3, CloudFront)
-Monitoring (CloudWatch)
-Automation (Shell scripting)
+Cloud Infrastructure (VPC, EC2) <br/>
+Serverless Architecture (Lambda, DynamoDB) <br/>
+Storage & CDN (S3, CloudFront) <br/>
+Monitoring (CloudWatch) <br/>
+Automation (Python, Shell scripting) <br/>
 
 🧠 Key Project — Cloud Resume Challenge <br/>
 Architecture: <br/>
-Frontend: Amazon S3 + Amazon CloudFront
-Backend: AWS Lambda
-Database: Amazon DynamoDB
+Frontend: Amazon S3 + Amazon CloudFront <br/>
+Backend: API Gateway + AWS Lambda + DynamoDB Database <br/>
 
 Highlights: <br/>
-Designed secure cloud infrastructure 
-Implemented serverless backend
-Optimized cost using hybrid environment strategy
+Designed secure cloud infrastructure <br/>
+Implemented serverless backend <br/>
+Optimized cost using hybrid environment strategy <br/>
 
 💡 Engineering Philosophy <br/>
 Build → Measure → Optimize <br/>
