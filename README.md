@@ -24,9 +24,9 @@ Implemented serverless backend
 Optimized cost using hybrid environment strategy
 
 💡 Engineering Philosophy <br/>
-Build → Measure → Optimize
+Build → Measure → Optimize <br/>
 Cloud engineering is not just about deploying systems,
 but designing them for efficiency, scalability, and cost.
 
 🎯 Career Objective <br/>
-Seeking opportunities as a Cloud Database Engineer / Cloud Support Engineer where I can contribute to scalable and reliable systems.
+Seeking opportunities as a Cloud Database Engineer / Cloud Engineer where I can contribute to scalable and reliable systems.
