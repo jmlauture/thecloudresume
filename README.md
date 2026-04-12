@@ -14,6 +14,7 @@ I combine a strong Database foundation with hands-on AWS cloud engineering exper
 The Cloud Resume Challenge goal is a multi-tier project requiring a serverless backend, a global CDN, and a fully automated CI/CD pipeline. The final product is a static resume website with visitor counts tracked and recorded in a DynamoDB table. </br>
 
 🧱 Architecture diagram </br>
+File: TheCloudResumeChallenge-Serverless.png </br>
  
 🔧 Technologies used </br>
 •	Amazon Simple Storage Service (S3), AWS CLI </br>
