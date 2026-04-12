@@ -201,6 +201,73 @@
             </div>
         </section>
 
+        <!-- ----------------------------------------------------------- -->
+        <!-- CHALLENGE LOGIC SECTION (NEW PAGE)                          -->
+        <!-- ----------------------------------------------------------- -->
+        <section id="challenge-logic" class="page-section py-20 bg-white min-h-screen">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="logic-highlight-bg p-8 rounded-3xl mb-12">
+                    <h2 class="text-amber-600 font-bold tracking-widest uppercase text-sm mb-2">Technical Case Study</h2>
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-6">Building a Modern Cloud Architecture on Legacy Infrastructure</h1>
+                    
+                    <div class="space-y-8 text-slate-700 leading-relaxed">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">The Vision</h3>
+                            <p>The goal was to complete the Cloud Resume Challenge, a multi-tier project requiring a serverless backend, a global CDN, and a fully automated CI/CD pipeline. However, my journey began with a significant obstacle: a 10-year-old local machine that could no longer support modern AWS development tools.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">The Solution: "Infrastructure as a Workspace"</h3>
+                            <p class="mb-4">Instead of seeing my hardware as a limitation, I treated it as a migration use case.</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">1</span>
+                                    <p><strong>The Dev Hub:</strong> I architected a secure Amazon VPC and launched an Amazon EC2 (t3.medium) instance to serve as my cloud-native workstation.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">2</span>
+                                    <p><strong>The Environment:</strong> I used this EC2 instance to install and run the AWS SAM CLI, Python, and Git, allowing me to bypass local OS restrictions entirely.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">3</span>
+                                    <p><strong>The Migration Logic:</strong> Drawing from my Per Scholas Gemini Project, I wrote Python scripts to manage the data flow from traditional SQL concepts into my modern DynamoDB visitor counter.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
+                            <h3 class="text-xl font-bold mb-4 text-blue-400">Technical Deep-Dive</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="border-l border-slate-700 pl-4">
+                                    <h4 class="font-bold text-sm uppercase text-slate-400">Backend</h4>
+                                    <p class="text-sm">REST API via Amazon API Gateway and AWS Lambda.</p>
+                                </div>
+                                <div class="border-l border-slate-700 pl-4">
+                                    <h4 class="font-bold text-sm uppercase text-slate-400">Frontend</h4>
+                                    <p class="text-sm">S3 Static Hosting + Global CloudFront Distribution (HTTPS).</p>
+                                </div>
+                                <div class="border-l border-slate-700 pl-4">
+                                    <h4 class="font-bold text-sm uppercase text-slate-400">Database</h4>
+                                    <p class="text-sm">DynamoDB NoSQL with atomic counters for analytics.</p>
+                                </div>
+                                <div class="border-l border-slate-700 pl-4">
+                                    <h4 class="font-bold text-sm uppercase text-slate-400">Automation</h4>
+                                    <p class="text-sm">GitHub Actions for auto-invalidations and S3 syncing.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-amber-200 pt-8 text-center">
+                            <p class="text-lg font-semibold italic text-slate-800">
+                                "This project proved that a Cloud Engineer's value isn't defined by their physical hardware, but by their ability to architect solutions around any constraint."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------------------- -->
+        
         <!-- ABOUT SECTION -->
         <section id="about" class="page-section py-20 bg-white">
             <div class="max-w-4xl mx-auto px-4">
