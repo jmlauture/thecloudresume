@@ -44,7 +44,7 @@ The full-stack serverless application is deployed on a platform with three layer
 •	Fixed API Gateway "Not Found" errors caused by incorrect route configuration </br>
 •	Resolved CORS issues blocking frontend API calls </br>
 •	Debugged CloudFront caching delays after deployment </br>
-•	Fixed Lambda permission issue to DynamoDB adhering to the principle of Least Privilege (Polp) </br>
+•	Fixed Lambda permission issue to DynamoDB adhering to the Principle of Least Privilege (Polp) </br>
 
 💡 Engineering Philosophy </br>
 Build → Measure → Optimize </br>
