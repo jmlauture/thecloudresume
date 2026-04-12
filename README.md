@@ -49,13 +49,9 @@ The full-stack serverless application is deployed on a platform with three layer
 Build → Measure → Optimize </br>
 Cloud engineering is not just about deploying systems, but designing them for efficiency, scalability, and cost. </br>
 
-🚀 Next Steps </br>
+🎯 Next Steps </br>
 I plan to continue building on this project and explore more AWS features like: </br> 
 •	Contact form → Lambda + SES </br>
 •	Infrastructure as Code → CloudFormation </br>
 •	Monitoring → CloudWatch dashboard </br>
 •	… </br>
-
-
-🎯 Career Objective <br/>
-Seeking opportunities as a Cloud Database Engineer / Cloud Engineer where I can contribute to scalable and reliable systems.
