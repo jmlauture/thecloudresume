@@ -6,12 +6,15 @@ Thecloudresume </br>
 •  🚀 Deployment steps </br>
 •  🐛 Challenges & fixes </br>
 •  💡 Engineering Philosophy </br>
+•  🎯 Next Steps </br>
 
 🚀 About Me </br>
-I combine a strong Database foundation with hands-on AWS cloud engineering experience to build scalable, secure, reliable, and cost-efficient solutions. I’m having fun building and deploying cloud applications using AWS. </br>
+I combine a strong Database foundation with hands-on AWS cloud engineering experience to build scalable, secure, reliable, and cost-efficient solutions. </br>
+I’m having fun building and deploying cloud applications using AWS. </br>
 
 📌 Project overview </br>
-The Cloud Resume Challenge goal is a multi-tier project requiring a serverless backend, a global CDN, and a fully automated CI/CD pipeline. The final product is a static resume website with visitor counts tracked and recorded in a DynamoDB table. </br>
+The Cloud Resume Challenge goal is a multi-tier project requiring a serverless backend, a global CDN, and a fully automated CI/CD pipeline. </br>
+The final product is a static resume website with visitor counts tracked and recorded in a DynamoDB table. </br>
 
 🧱 Architecture diagram </br>
 File: TheCloudResumeChallenge-Serverless.png </br>
